@@ -8,4 +8,3 @@ const routes = (fastify: FastifyInstance, opts: any, done: any) => {
 }
 
 export default routes
-

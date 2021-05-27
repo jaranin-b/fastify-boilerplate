@@ -2,12 +2,12 @@ import fastify, { FastifyInstance } from 'fastify'
 import routes from './routes'
 
 interface IQuerystring {
-  username: string;
-  password: string;
+  username: string
+  password: string
 }
 
 interface IHeaders {
-  'h-Custom': string;
+  'h-Custom': string
 }
 
 const server: FastifyInstance = fastify()
@@ -18,7 +18,7 @@ server.get('/ping', async (request, reply) => {
 
 server.register(routes)
 
-server.listen(3000, '0.0.0.0', (err, address) => {
+server.listen(8080, '0.0.0.0', (err, address) => {
   if (err) {
     console.error(err)
     process.exit(1)
