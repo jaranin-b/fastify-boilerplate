@@ -1,20 +1,18 @@
-# The instructions for the first stage
-FROM node:14.17 as builder
+FROM node:14.17
 
-COPY . .
+ENV NODE_ENV=production
+
+WORKDIR /usr/src/app
+
+COPY package*.json .
+
 RUN npm install typescript -g
 RUN npm install
 RUN npm ci --only=production
+
+ADD . /usr/src/app
+
 RUN npm run build
 
-# The instructions for second stage
-FROM node:14.17
-
-WORKDIR /usr/src/app
-COPY --from=builder dist dist
-
-ENV NODE_ENV=production
-RUN npm install --production
-RUN npm ci --only=production
-
 CMD [ "npm", "start" ]
+EXPOSE 3000
