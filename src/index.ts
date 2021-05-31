@@ -37,15 +37,6 @@ declare module 'fastify' {
   }
 }
 
-interface IQuerystring {
-  username: string
-  password: string
-}
-
-interface IHeaders {
-  'h-Custom': string
-}
-
 // type orm
 createConnection()
   .then(async (connection) => {

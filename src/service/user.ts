@@ -5,6 +5,11 @@ const getAll = () => {
   return getManager().find(User);
 }
 
+const getOne = (userId: string) => {
+  return getRepository(User).findOne(userId);
+}
+
 export default {
   getAll,
+  getOne,
 }
