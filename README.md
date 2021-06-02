@@ -1,12 +1,14 @@
 # fastify-boilerplate
 
-# Awesome Project Build with TypeORM
+# Fastify Typescript boilerplate  with TypeORM
 
-Steps to run this project:
+Steps to run this project on local:
 
 1. Run `npm i` command
-2. Setup database settings inside `ormconfig.json` file
-3. Run `npm start` command
+2. Rename file .env.sample to .env
+3. Setup database settings inside `ormconfig.json` file
+4. Run `npm run dev` command
+5. Fastify server is now running on your localhost:8080
 
 # References
 - Fastify: https://www.fastify.io/
