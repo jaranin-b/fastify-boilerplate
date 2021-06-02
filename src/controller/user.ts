@@ -2,7 +2,7 @@ import { FastifyReply, FastifyRequest } from 'fastify'
 import { UserModel } from '../interface/user'
 import userService from '../service/user'
 
-interface IQueryParams {
+interface UserParams {
   id: string
 }
 
@@ -13,7 +13,7 @@ const getAllUser = (request: FastifyRequest, reply: FastifyReply) => {
 
 const getUser = (
   request: FastifyRequest<{
-    Params: IQueryParams
+    Params: UserParams
   }>,
   reply: FastifyReply
 ) => {
@@ -33,4 +33,17 @@ const createUser = (
   return user
 }
 
-export default { getAllUser, getUser, createUser }
+const updateUser = (
+  request: FastifyRequest<{
+    Params: UserParams,
+    Body: UserModel
+  }>,
+  reply: FastifyReply
+) => {
+  const userId = request.params.id
+  const userToUpdate = request.body
+  const user = userService.updateUser(userId, userToUpdate)
+  return user
+}
+
+export default { getAllUser, getUser, createUser, updateUser }
