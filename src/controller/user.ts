@@ -1,20 +1,36 @@
 import { FastifyReply, FastifyRequest } from 'fastify'
+import { UserModel } from '../interface/user'
 import userService from '../service/user'
+
 interface IQueryParams {
-  id: string;
+  id: string
 }
 
 const getAllUser = (request: FastifyRequest, reply: FastifyReply) => {
-  const users = userService.getAll()
+  const users = userService.getAllUser()
   return users
 }
 
-const getUser = (request: FastifyRequest<{
-  Params: IQueryParams
-}>, reply: FastifyReply) => {
+const getUser = (
+  request: FastifyRequest<{
+    Params: IQueryParams
+  }>,
+  reply: FastifyReply
+) => {
   const userId = request.params.id
-  const user = userService.getOne(userId)
+  const user = userService.getUser(userId)
   return user
 }
 
-export default { getAllUser, getUser }
+const createUser = (
+  request: FastifyRequest<{
+    Body: UserModel
+  }>,
+  reply: FastifyReply
+) => {
+  const userModel = request.body
+  const user = userService.createUser(userModel)
+  return user
+}
+
+export default { getAllUser, getUser, createUser }
