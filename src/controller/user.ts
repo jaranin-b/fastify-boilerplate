@@ -35,7 +35,7 @@ const createUser = (
 
 const updateUser = (
   request: FastifyRequest<{
-    Params: UserParams,
+    Params: UserParams
     Body: UserModel
   }>,
   reply: FastifyReply
@@ -46,4 +46,15 @@ const updateUser = (
   return user
 }
 
-export default { getAllUser, getUser, createUser, updateUser }
+const deleteUser = (
+  request: FastifyRequest<{
+    Params: UserParams
+  }>,
+  reply: FastifyReply
+) => {
+  const userId = request.params.id
+  const user = userService.deleteUser(userId)
+  return user
+}
+
+export default { getAllUser, getUser, createUser, updateUser, deleteUser }

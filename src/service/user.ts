@@ -6,18 +6,25 @@ const getAllUser = () => {
   return getManager().find(User)
 }
 
-const getUser = async(userId: string) => {
+const getUser = async (userId: string) => {
   return await getRepository(User).findOne(userId)
 }
 
-const createUser = async(user: UserModel) => {
+const createUser = async (user: UserModel) => {
   return await getRepository(User).save(user)
 }
 
-const updateUser = async(userId: string, user: UserModel) => {
+const updateUser = async (userId: string, user: UserModel) => {
   const existingUser = await getRepository(User).findOne(userId)
   const userToUpdate = { ...existingUser, ...user }
   return await getRepository(User).save(userToUpdate)
+}
+
+const deleteUser = async (userId: string) => {
+  const userToDelete = await getRepository(User).findOne(userId)
+  if (userToDelete) {
+    return await getRepository(User).remove(userToDelete)
+  }
 }
 
 export default {
@@ -25,4 +32,5 @@ export default {
   getUser,
   createUser,
   updateUser,
+  deleteUser,
 }
