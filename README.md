@@ -14,3 +14,4 @@ Steps to run this project on local:
 - Fastify: https://www.fastify.io/
 - Typeorm: https://typeorm.io/#/
 - Interfaces vs Types: https://stackoverflow.com/questions/37233735/typescript-interfaces-vs-types
+- Jest: https://jestjs.io/
