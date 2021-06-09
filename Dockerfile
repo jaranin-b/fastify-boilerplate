@@ -1,4 +1,7 @@
-FROM node:14.17
+FROM node:14.17-slim
+
+RUN apt-get update
+RUN apt-get install -y curl bash git
 
 ENV NODE_ENV=production
 
