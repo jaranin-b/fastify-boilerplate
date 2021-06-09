@@ -37,10 +37,10 @@ declare module 'fastify' {
 
 // type orm connection
 createConnection()
-  .then(async (connection) => {
+  .then(async () => {
     const server: FastifyInstance = fastify()
 
-    server.get('/ping', async (request, reply) => {
+    server.get('/ping', async () => {
       return 'pong\n'
     })
 

@@ -1,5 +1,3 @@
 import userService from './userService'
 
-export {
-  userService
-}
+export { userService }

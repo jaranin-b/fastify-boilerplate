@@ -1,12 +1,13 @@
-import { FastifyReply, FastifyRequest } from 'fastify'
+import { FastifyRequest } from 'fastify'
 import { UserModel } from '../interfaces/user'
 import { userService } from '../services'
+import { User } from '../entity/User'
 
 interface UserParams {
   id: string
 }
 
-const getAllUser = (request: FastifyRequest, reply: FastifyReply) => {
+const getAllUser = (): Promise<User[]> => {
   const users = userService.getAllUser()
   return users
 }
@@ -14,9 +15,8 @@ const getAllUser = (request: FastifyRequest, reply: FastifyReply) => {
 const getUser = (
   request: FastifyRequest<{
     Params: UserParams
-  }>,
-  reply: FastifyReply
-) => {
+  }>
+): Promise<User | undefined> => {
   const userId = request.params.id
   const user = userService.getUser(userId)
   return user
@@ -25,9 +25,8 @@ const getUser = (
 const createUser = (
   request: FastifyRequest<{
     Body: UserModel
-  }>,
-  reply: FastifyReply
-) => {
+  }>
+): Promise<User | undefined> => {
   const userModel = request.body
   const user = userService.createUser(userModel)
   return user
@@ -37,9 +36,8 @@ const updateUser = (
   request: FastifyRequest<{
     Params: UserParams
     Body: UserModel
-  }>,
-  reply: FastifyReply
-) => {
+  }>
+): Promise<User | undefined> => {
   const userId = request.params.id
   const userToUpdate = request.body
   const user = userService.updateUser(userId, userToUpdate)
@@ -49,9 +47,8 @@ const updateUser = (
 const deleteUser = (
   request: FastifyRequest<{
     Params: UserParams
-  }>,
-  reply: FastifyReply
-) => {
+  }>
+): Promise<User | undefined> => {
   const userId = request.params.id
   const user = userService.deleteUser(userId)
   return user
