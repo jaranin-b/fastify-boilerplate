@@ -1,6 +1,6 @@
 import { getManager, getRepository } from 'typeorm'
-import { User } from '../entity/User'
-import { UserModel } from '../interface/user'
+import { User } from '../entities/User'
+import { UserModel } from '../interfaces/user'
 
 const getAllUser = () => {
   return getManager().find(User)

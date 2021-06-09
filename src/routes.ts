@@ -1,5 +1,5 @@
 import { FastifyInstance } from 'fastify'
-import userController from './controller/user.controller'
+import userController from './controller'
 
 const routes = (fastify: FastifyInstance, opts: any, done: any) => {
   fastify.get('/users', userController.getAllUser)

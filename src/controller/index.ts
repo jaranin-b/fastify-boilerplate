@@ -1,6 +1,6 @@
 import { FastifyReply, FastifyRequest } from 'fastify'
-import { UserModel } from '../interface/user'
-import userService from '../service/user.service'
+import { UserModel } from '../interfaces/user'
+import { userService } from '../services'
 
 interface UserParams {
   id: string

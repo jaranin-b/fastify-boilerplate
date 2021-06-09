@@ -1,5 +1,5 @@
-import userService from './user.service'
-import { User } from '../entity/User'
+import userService from './userService'
+import { User } from '../entities/User'
 import * as typeorm from 'typeorm'
 import { createSandbox, SinonSandbox, createStubInstance } from 'sinon'
 
