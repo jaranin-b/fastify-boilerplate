@@ -11,6 +11,22 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{html,css,less,ejs}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jaranin-b/fastify-boilerplate.git"
@@ -39,12 +55,14 @@
     "@types/sinon": "^10.0.2",
     "@typescript-eslint/eslint-plugin": "^4.25.0",
     "@typescript-eslint/parser": "^4.25.0",
-    "eslint": "^7.27.0",
+    "eslint": "^7.28.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
+    "husky": "^6.0.0",
     "jest": "^27.0.3",
+    "lint-staged": "^11.0.0",
     "nodemon": "^2.0.7",
-    "prettier": "^2.3.0",
+    "prettier": "^2.3.1",
     "sinon": "^11.1.1",
     "ts-jest": "^27.0.2",
     "ts-node": "^10.0.0",
