@@ -10,7 +10,7 @@ const schema = {
   properties: {
     PORT: {
       type: 'string',
-      default: 3000,
+      default: 8080,
     },
     ENV_NAME: {
       type: 'string',
@@ -47,7 +47,7 @@ createConnection()
     server.register(fastifyEnv, options)
     server.register(routes)
 
-    server.listen(8080, '0.0.0.0', (err, address) => {
+    server.listen(process.env.PORT || 8080, '0.0.0.0', (err, address) => {
       if (err) {
         console.error(err)
         process.exit(1)
