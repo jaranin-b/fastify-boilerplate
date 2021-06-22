@@ -3,6 +3,7 @@ import fastifyEnv from 'fastify-env'
 import routes from './routes'
 import 'reflect-metadata'
 import { createConnection } from 'typeorm'
+import { errorHandler } from './middlewares/errorHandler'
 
 const schema = {
   type: 'object',
@@ -41,11 +42,13 @@ createConnection()
     const server: FastifyInstance = fastify()
 
     server.get('/ping', async () => {
+      throw new Error('server error')
       return 'pong\n'
     })
 
     server.register(fastifyEnv, options)
     server.register(routes)
+    server.setErrorHandler(errorHandler)
 
     server.listen(process.env.PORT || 8080, '0.0.0.0', (err, address) => {
       if (err) {
