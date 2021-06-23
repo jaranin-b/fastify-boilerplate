@@ -4,6 +4,7 @@ import routes from './routes'
 import 'reflect-metadata'
 import { createConnection } from 'typeorm'
 import { errorHandler } from './middlewares/errorHandler'
+import { ApiError } from './utils/errors/apiError'
 
 const schema = {
   type: 'object',
@@ -40,11 +41,6 @@ declare module 'fastify' {
 createConnection()
   .then(async () => {
     const server: FastifyInstance = fastify()
-
-    server.get('/ping', async () => {
-      throw new Error('server error')
-      return 'pong\n'
-    })
 
     server.register(fastifyEnv, options)
     server.register(routes)
