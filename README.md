@@ -1,4 +1,4 @@
-# fastify-boilerplate'
+# Fastify Typescript boilerplate  with TypeORM
 
 # Features
 1. Typescript
@@ -9,9 +9,7 @@
 6. Dockerized
 7. Fastify error handling
 
-# Fastify Typescript boilerplate  with TypeORM
-
-Steps to run this project on local:
+# Steps to run this project on local:
 
 1. Run `npm i` command
 2. Rename file .env.sample to .env
