@@ -1,4 +1,13 @@
-# fastify-boilerplate
+# fastify-boilerplate'
+
+# Features
+1. Typescript
+2. Unit test using Jest + Sinon
+3. Eslint + Prettier
+4. Integrated with TypeORM
+5. nodemon
+6. Dockerized
+7. Fastify error handling
 
 # Fastify Typescript boilerplate  with TypeORM
 
